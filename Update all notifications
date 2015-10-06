@@ -1,0 +1,3 @@
+var Firebase = require('firebase');
+var userRef = new Firebase(("https://brilliant-torch-4963.firebaseio.com/notifications/n014"));
+userRef.child('fromName').set('G4S')

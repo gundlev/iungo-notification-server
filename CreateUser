@@ -1,0 +1,43 @@
+var Firebase = require('firebase');
+var NGRef = new Firebase("https://brilliant-torch-4963.firebaseio.com/networkgroups/iungo/members");
+var userRef = new Firebase("https://brilliant-torch-4963.firebaseio.com/users");
+var ref = new Firebase("https://brilliant-torch-4963.firebaseio.com");
+
+var arr = [""]
+
+ref.createUser({
+  email    : "bobtony@firebase.com",
+  password : "correcthorsebatterystaple"
+}, function(error, userData) {
+  if (error) {
+    console.log("Error creating user:", error);
+    } else {
+      console.log("Successfully created user account with uid:", userData.uid);
+
+        var urlString = "/networkgroups/iungo/members/" + userData.uid + "/status"
+        userRef.child(userData.uid).set({
+            address: "",
+            compnay: "",
+            description: "",
+            email: userData.password.email,
+            title: "",
+            phoneNo: "",
+            mobilNo: "",
+            name: "",
+            notifications: 0,
+            picture: "",
+            website: ""
+            ngroup: {
+                'iungo': {
+                      status: urlString
+                }
+            }
+        });
+
+        NGRef.child('userData.uid').set({
+          status: 'aktiv'
+        });
+
+    }
+});
+
