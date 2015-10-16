@@ -1,0 +1,31 @@
+{
+  "name": "iungo-notification-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "apn": "^1.7.4",
+    "firebase": "^2.3.1",
+    "q": "^1.4.1",
+    "node-gcm": "^0.12.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23"
+  },
+  "scripts": {
+    "start": "babel-node index.js",
+    "build": "babel index.js --out-file build/index.js",
+    "watch": "babel index.js --watch --out-file build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gundlev/iungo-notification-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gundlev/iungo-notification-server/issues"
+  },
+  "homepage": "https://github.com/gundlev/iungo-notification-server#readme"
+}
