@@ -19,12 +19,11 @@ var ref = new Firebase("https://brilliant-torch-4963.firebaseio.com/notification
 
 
 
-// Attach an asynchronous callback to read the data at our posts reference
 ref.on("child_added", function(snapshot, prevChildKey) {
 
 		var snap = snapshot.val();
 		//console.log("https://brilliant-torch-4963.firebaseio.com/users/" + snap.to);
-  	
+
   	var userRef = new Firebase("https://brilliant-torch-4963.firebaseio.com/users/" + snapshot.child('to').val());
   	userRef.once("value", function(data) {
   		  console.log(snapshot.val());
@@ -35,7 +34,7 @@ ref.on("child_added", function(snapshot, prevChildKey) {
 						var note = new apn.Notification();
 
 						note.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
-						note.badge = data.child('notifications').val(); // makes the white number in red circle, maybe change to 1.
+						note.badge = 1//data.child('notifications').val(); // makes the white number in red circle, maybe change to 1.
 						note.sound = "ping.aiff";
 						note.alert = snapshot.child('title').val();
 						note.payload = {'type': snapshot.child('type').val(),
@@ -44,6 +43,4 @@ ref.on("child_added", function(snapshot, prevChildKey) {
 						apnConnection.pushNotification(note, data.child('device_token').val());
 				}
 		});
-
-
 });

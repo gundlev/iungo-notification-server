@@ -10,7 +10,7 @@ var ref = new Firebase("https://brilliant-torch-4963.firebaseio.com");
 var arr = [""];
 
 ref.createUser({
-  email    : "bitten@seize.dk",
+  email    : "kaufi@kplusv.dk",
   password : "1234"
 }, function(error, userData) {
   if (error) {
@@ -22,20 +22,18 @@ ref.createUser({
         var urlString = "/networkgroups/iungo/members/" + uidString + "/status";
         userRef.child(userData.uid).set({
             address: "",
-            company: "Seize",
+            company: "",
             description: "",
-            email: "bitten@seize.dk",
-            title: "Bogholder",
+            email: "kaufi@kplusv.dk",
+            title: "",
             phoneNo: "",
-            mobilNo: "91942222",
-            name: "Bitten Hartmann",
+            mobilNo: "",
+            name: "Christina Kaufi Vang",
             notifications: 0,
             picture: "",
             website: "",
             ngroup: {
-                iungo: {
-                      status: urlString
-                }
+                iungo: urlString
             }
         });
 
