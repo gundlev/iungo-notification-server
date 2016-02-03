@@ -32,9 +32,9 @@ ref.orderByChild('timestamp').startAt(startTime).on("child_added", function(snap
 
     	var userRef = new Firebase("https://brilliant-torch-4963.firebaseio.com/users/" + snapshot.child('to').val());
     	userRef.once("value", function(data) {
-    		  console.log(snapshot.val());
+    		  // console.log(snapshot.val());
     			console.log("Sending natofication:");
-          console.log(data.val());
+          // console.log(data.val());
     			console.log(data.child('device_token').val());
 
               if (data.child('device_token').val() !== null || data.child('device_token').val() !== "") {
