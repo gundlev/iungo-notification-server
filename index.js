@@ -27,6 +27,14 @@ var startTime = Date.now();
 // Get a database reference firebase
 var ref = new Firebase("https://brilliant-torch-4963.firebaseio.com/notifications");
 
+ref.authWithCustomToken("jk6NH9Rgh0O0VbGfPuQHFkAz0ynONLpwu5oVC6I8", function(error, authData) {
+	if (error) {
+		console.log("Login Failed! ", error);
+	} else {
+		console.log("Login Succeeded! ", authData);
+	}
+})
+
 ref.orderByChild('timestamp').startAt(startTime).on("child_added", function(snapshot, prevChildKey) {
   console.log("New Child added");
 
