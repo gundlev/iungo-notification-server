@@ -15,10 +15,10 @@ memberRef.once("value", function(data) {
         from: "iungo",
         to: value,
         type: "reminder",
-        reference: "/networkgroups/iungo/meetings/-K8BCoTa7i1_-b6Ia1Yp",
+        reference: "/networkgroups/iungo/meetings/-KAakku0Sqpadyao6mnQ",
         read: false,
-        title: "HUSK at mødet d.27/1 afholdes på ny adresse.",
-        timestamp: 1453450491458,
+        title: "HUSK møde onsdag d. 24.",
+        timestamp: 1456265254129,
         fromName: "IUNGO"
       });
 
