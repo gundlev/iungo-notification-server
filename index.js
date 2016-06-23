@@ -62,7 +62,7 @@ ref.orderByChild('timestamp').startAt(startTime).on("child_added", function(snap
                 let token = data.child('device_token_android').val(),
                     //title = snapshot.child('title').val(),
                     type = snapshot.child('type').val(),
-                    reference = snapshot.child('reference').val();
+                    reference = snapshot.child('reference').val(),
 										title = snapshot.child('title').val();
 
                 if(key && token && type && reference && title){
