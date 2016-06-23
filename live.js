@@ -77,10 +77,11 @@ ref.orderByChild('timestamp').startAt(startTime).on("child_added", function (sna
       //title = snapshot.child('title').val(),
       type = snapshot.child('type').val(),
           reference = snapshot.child('reference').val();
+          title = snapshot.child('title').val();
 
-      if (key && token && type && reference) {
+      if (key && token && type && reference && title) {
         //CORE: if has child 'device_token_android' then send()
-        pushAndroid({ key: key, token: token, type: type, reference: reference });
+        pushAndroid({ key: key, token: token, type: type, reference: reference, title: title });
         //console.log({token, title, icon, type, reference})
       }
     }
@@ -92,12 +93,14 @@ var pushAndroid = function pushAndroid(_ref) {
   var token = _ref.token;
   var type = _ref.type;
   var reference = _ref.reference;
+  var title = _ref.title
 
-  console.log({ key: key, token: token, type: type, reference: reference });
+
+  console.log({ key: key, token: token, type: type, reference: reference, title: title });
 
   var message = new _nodeGcm2.default.Message();
 
-  message.addData({ key: key, type: type, reference: reference });
+  message.addData({ key: key, type: type, reference: reference, title: title });
 
   sender.send(message, { registrationIds: [token] }, function (err, result) {
     if (err) console.error(err);else console.log(result);
